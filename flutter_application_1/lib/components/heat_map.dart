@@ -21,10 +21,7 @@ class MyHeatmap extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container( 
       padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Colors.blueGrey[900],
-      ),
+      color: Colors.transparent,
       child: HeatMap(
         startDate: createDateTimeObject(startDateYYYYMMDD),
         endDate: DateTime.now().add(const Duration(days: 0)),

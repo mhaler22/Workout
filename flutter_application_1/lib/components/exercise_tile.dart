@@ -4,7 +4,7 @@ class ExerciseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red[300], // Shade of red background
+      backgroundColor: const Color.fromARGB(255, 241, 234, 234), // Shade of red background
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -50,7 +50,7 @@ class ExerciseTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blueGrey, // Set background color to red (This won't affect final output)
+        color: Color.fromARGB(255, 157, 177, 186), // Set background color to red (This won't affect final output)
         borderRadius: BorderRadius.circular(8.0), // Add rounded corners (This won't affect final output)
         boxShadow: [
           BoxShadow(

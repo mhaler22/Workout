@@ -19,17 +19,12 @@ class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false; // Flag to track loading state
 
   bool _authenticate() {
-    bool result = false;
-      if  (_usernameController.text == 'rhejie' &&
-        _passwordController.text == 'rhejie') result = true;
-      if  (_usernameController.text == 'jans' &&
-        _passwordController.text == 'jans') result =true;
-      if  (_usernameController.text == 'erwin' &&
-        _passwordController.text == 'erwin')result = true;
-      if  (_usernameController.text == 'jaz' &&
-        _passwordController.text == 'jaz') result =true;
-
-    return result;
+    // Simplified authentication logic for demonstration
+    if (_usernameController.text == 'rhejie' && _passwordController.text == 'rhejie') return true;
+    if (_usernameController.text == 'jans' && _passwordController.text == 'jans') return true;
+    if (_usernameController.text == 'erwin' && _passwordController.text == 'erwin') return true;
+    if (_usernameController.text == 'jaz' && _passwordController.text == 'jaz') return true;
+    return false;
   }
 
   // Gym quote list
@@ -50,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Login',
           style: TextStyle(color: Colors.white, fontSize: 20.0),
         ),
@@ -58,93 +53,123 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.red, Colors.yellowAccent],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+          image: DecorationImage(
+            image: AssetImage('assets/login.png'),
+            fit: BoxFit.cover,
+          
           ),
         ),
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  hintText: 'Username',
-                  errorText: _usernameError,
-                  hintStyle: TextStyle(color: Colors.blueGrey[800]),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey[800]!),
-                  ),
+        child: Center(
+          child: Opacity(
+            opacity: 1,
+          child: SizedBox(
+            width: 500.0, // Set width of the container
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueGrey[800]!, width: 4.0), // Add heavier border
+                borderRadius: BorderRadius.circular(15.0), // Round the edges of the border
+              ),
+              child: Card(
+                color: Colors.transparent, // Make the Card background transparent
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0), // Round the edges of the Card
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Username cannot be empty';
-                  }
-                  return null; // Assuming no other username validation needed
-                },
-                style: TextStyle(color: Colors.blueGrey[800]!), // Set text color to blue-grey
-              ),
-              const SizedBox(height: 10.0),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  errorText: _passwordError,
-                  hintStyle: TextStyle(color: Colors.blueGrey[800]),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey[800]!),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Password cannot be empty';
-                  }
-                  return null; // Assuming no other password validation needed
-                },
-                style: TextStyle(color: Colors.blueGrey[800]!), // Set text color to blue-grey
-              ),
-              const SizedBox(height: 20.0),
-              Text(
-                gymQuotes[Random().nextInt(gymQuotes.length)], // Access random quote
-                style: const TextStyle(fontSize: 16.0, fontStyle: FontStyle.italic),
-              ),
-              const SizedBox(height: 20.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // Use min to shrink-wrap the Card
+                      children: [
+                        TextFormField(
+                          controller: _usernameController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter username',
+                            errorText: _usernameError,
+                            hintStyle: TextStyle(color: Color.fromARGB(255, 237, 239, 240)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blueGrey[800]!),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                            alignLabelWithHint: true,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Username cannot be empty';
+                            }
+                            return null; // Assuming no other username validation needed
+                          },
+                          style: TextStyle(color: const Color.fromARGB(255, 243, 244, 245)!), // Set text color to blue-grey
+                        ),
+                        const SizedBox(height: 10.0),
+                        TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Enter password',
+                            errorText: _passwordError,
+                            hintStyle: TextStyle(color: Color.fromARGB(255, 248, 250, 251)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: const Color.fromARGB(255, 254, 254, 254)!),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                            alignLabelWithHint: true,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Password cannot be empty';
+                            }
+                            return null; // Assuming no other password validation needed
+                          },
+                          style: TextStyle(color: const Color.fromARGB(255, 228, 231, 232)!), // Set text color to blue-grey
+                        ),
+                        const SizedBox(height: 30.0),
+                        Text(
+                          gymQuotes[Random().nextInt(gymQuotes.length)], // Access random quote
+                          style: const TextStyle(fontSize: 16.0, fontStyle: FontStyle.italic,
+                          color: Colors.white),
+                        ),
+                        const SizedBox(height: 30.0),
+                        _isLoading
+                            ? const CircularProgressIndicator() // Show progress indicator when loading
+                            : ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    setState(() {
+                                      _isLoading = true;
+                                    });
 
-            
-                             _isLoading
-                  ? CircularProgressIndicator() // Show progress indicator when loading
-                  : ElevatedButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          setState(() {
-                            _isLoading = true;
-                          });
+                                    // Simulate authentication delay (replace with actual authentication logic)
+                                    await Future.delayed(const Duration(seconds: 2));
 
-                          // Simulate authentication delay (replace with actual authentication logic)
-                          await Future.delayed(Duration(seconds: 2));
-
-                          if (_authenticate()) {
-                            // Navigate to the next screen on successful login
-                            Navigator.pushReplacementNamed(context, '/home');
-                          } else {
-                            setState(() {
-                              _isLoading = false;
-                              _usernameError = 'Invalid username or password';
-                              _passwordError = 'Invalid username or password';
-                            });
-                          }
-                        }
-                      },
-                      child: Text('Login'),
+                                    if (_authenticate()) {
+                                      // Navigate to the next screen on successful login
+                                      Navigator.pushReplacementNamed(context, '/welcome');
+                                    } else {
+                                      setState(() {
+                                        _isLoading = false;
+                                        _usernameError = 'Invalid username or password';
+                                        _passwordError = 'Invalid username or password';
+                                      });
+                                    }
+                                  }
+                                },
+                                child: const Text('Login',
+                                style: TextStyle(color: Colors.white),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blueGrey[800]!,
+                                ),
+                              ),
+                      ],
                     ),
-            ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
-      ),
+      ),),
     );
   }
 }

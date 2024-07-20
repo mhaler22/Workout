@@ -136,20 +136,30 @@ void clear() {
   Widget build(BuildContext content) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-      appBar: AppBar(title: Text(widget.workoutName)),
+      appBar: AppBar(title: Text(widget.workoutName),
+      backgroundColor: Colors.blueGrey,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewExercise,
-        child: Icon(Icons.add),),
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.yellowAccent, Colors.red],
-            begin:  Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+        child: Icon(Icons.add),
         ),
+        body: Stack(
+          children: [
+            Opacity(
+              opacity: 0.5,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/workout.jpeg'),
+                    fit: BoxFit.cover,
+                    ),
+                ),
+              ),
+              ),
+          
 
 
-
+      Container(
       child: ListView.builder(
         itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
         itemBuilder: (context, index) =>ExerciseTile(
@@ -167,6 +177,8 @@ void clear() {
            ),
            ),
         ),
+      ),
+          ],
       ),
       ),
     );

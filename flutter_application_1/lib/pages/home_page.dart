@@ -31,7 +31,7 @@ void createNewWorkout() {
     context: context,
     isScrollControlled: true, // Allow content to scroll if needed
     builder: (context) => Container(
-      padding: EdgeInsets.all(20.0), // Adjust padding as needed
+      padding: const EdgeInsets.all(20.0), // Adjust padding as needed
       decoration: BoxDecoration(
         color: Colors.blueGrey[900], // Match background color
         borderRadius: BorderRadius.circular(10.0), // Add rounded corners
@@ -39,7 +39,7 @@ void createNewWorkout() {
   child: Column(
         mainAxisSize: MainAxisSize.min, // Avoid unnecessary scrolling
         children: [
-          Text(
+          const Text(
             'Create New Workout',
             style: TextStyle(
               color: Colors.white,
@@ -52,7 +52,7 @@ const SizedBox(height: 10.0), // Add spacing
             controller: newWorkoutNameController,
             decoration: InputDecoration(
               hintText: 'Workout Name',
-              hintStyle: TextStyle(color: Colors.white70), // Adjust hint color
+              hintStyle: const TextStyle(color: Colors.white70), // Adjust hint color
               fillColor: Colors.blueGrey[800], // Match background color slightly lighter
               filled: true,
               border: OutlineInputBorder(
@@ -60,7 +60,7 @@ const SizedBox(height: 10.0), // Add spacing
                 borderSide: BorderSide.none, // Remove border
               ),
             ),
-            style: TextStyle(color: Colors.white), // Match text color
+            style: const TextStyle(color: Colors.white), // Match text color
           ),
           const SizedBox(height: 10.0), // Add spacing
           Row(
@@ -68,7 +68,7 @@ const SizedBox(height: 10.0), // Add spacing
             children: [
               ElevatedButton(
                 onPressed: save,
-                child: Text('Save'),
+                child: const Text('Save'),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Colors.amberAccent[700], // Text color
                   shape: RoundedRectangleBorder(
@@ -78,7 +78,7 @@ const SizedBox(height: 10.0), // Add spacing
               ),
               ElevatedButton(
                 onPressed: cancel,
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Colors.grey[800], // Text color
                   shape: RoundedRectangleBorder(
@@ -135,13 +135,14 @@ void clear() {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-        backgroundColor: Colors.amberAccent[700],
+        backgroundColor: Colors.blueGrey[800],
       appBar: AppBar(
         title:  const Text('PUMP UP!',
         style: TextStyle(fontFamily: 'Staatliches',
+        color: Colors.white
         ),
         ),
-        backgroundColor: const Color.fromARGB(255, 213, 138, 0),
+        backgroundColor: Colors.blueGrey[800],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewWorkout,
@@ -149,16 +150,23 @@ void clear() {
         backgroundColor: Colors.blueGrey[700],
       
         ),
-      body: ListView(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/homepage.jpg'),
+              fit: BoxFit.cover,
+          ),
+        ),
+      child: ListView(
         children: [
 
           MyHeatmap(datasets: value.heatMapDataSet, startDateYYYYMMDD: value.getStartDate()),
           const Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0, bottom: 16.0),
             child: Text(
               'Stay consistent and crush your goals',
               style: TextStyle(
-                color: Color.fromARGB(255, 18, 17, 17),
+                color: Color.fromARGB(255, 243, 240, 240),
                 fontSize: 30.0,
               ),
               textAlign: TextAlign.center,
@@ -174,7 +182,7 @@ void clear() {
           title: Text(
             value.getWorkoutList()[index].name,
             style: TextStyle(
-              color: const Color.fromARGB(255, 4, 4, 4),
+              color: Color.fromARGB(255, 243, 242, 242),
               fontSize: 22.0,
               fontWeight: FontWeight.bold,
               letterSpacing: 1.0,
@@ -197,6 +205,7 @@ void clear() {
       ),
         ],
       )
+      ),
       ),
     );
   }
