@@ -4,24 +4,14 @@ class ExerciseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 241, 234, 234), // Shade of red background
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[Colors.red[300]!, Colors.red[200]!.withOpacity(0.8)],
-          ),
-        ),
-        child: SafeArea(
-          child: ExerciseTile(
-            exerciseName: "Exercise Name", // Replace with your exercise name
-            weight: "50", // Replace with weight
-            reps: "10", // Replace with reps
-            sets: "3", // Replace with sets
-            isCompleted: false, // Set to true if completed
-            onCheckBoxChanged: (value) => print("Checkbox changed: $value"), // Handle checkbox change
-          ),
+      body: SafeArea(
+        child: ExerciseTile(
+          exerciseName: "Exercise Name", // Replace with your exercise name
+          weight: "50", // Replace with weight
+          reps: "10", // Replace with reps
+          sets: "3", // Replace with sets
+          isCompleted: false, // Set to true if completed
+          onCheckBoxChanged: (value) => print("Checkbox changed: $value"), // Handle checkbox change
         ),
       ),
     );
@@ -50,27 +40,38 @@ class ExerciseTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 157, 177, 186), // Set background color to red (This won't affect final output)
-        borderRadius: BorderRadius.circular(8.0), // Add rounded corners (This won't affect final output)
-        boxShadow: [
-          BoxShadow(
-            color: Colors.yellow[200]!.withOpacity(0.3), // Yellow accent for shadow (This won't affect final output)
-            blurRadius: 4.0, // Adjust blur radius for shadow softness (This won't affect final output)
-            spreadRadius: 2.0, // Adjust spread radius for shadow size (This won't affect final output)
-          ),
-        ],
+        color: Color.fromARGB(255, 157, 177, 186), // Set background color
+        borderRadius: BorderRadius.circular(8.0), // Add rounded corners
       ),
       child: ListTile(
-        title: Text(exerciseName),
-        subtitle: Row(children: [
-          //weight
-          Chip(label: Text("$weight kg")),
-          Chip(label: Text("$reps reps")),
-          Chip(label: Text("$sets sets")),
-        ]),
+        title: Text(
+          exerciseName,
+          style: TextStyle(color: Colors.white), // Set exercise name text color to white
+        ),
+        subtitle: Row(
+          children: [
+            Chip(
+              label: Text("$weight kg"),
+              backgroundColor: Colors.blueGrey, // Set Chip background color
+              labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
+            ),
+            SizedBox(width: 8.0), // Optional: Add spacing between Chips
+            Chip(
+              label: Text("$reps reps"),
+              backgroundColor: Colors.blueGrey, // Set Chip background color
+              labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
+            ),
+            SizedBox(width: 8.0), // Optional: Add spacing between Chips
+            Chip(
+              label: Text("$sets sets"),
+              backgroundColor: Colors.blueGrey, // Set Chip background color
+              labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
+            ),
+          ],
+        ),
         trailing: Checkbox(
           value: isCompleted,
-          onChanged: (value) => onCheckBoxChanged!(value),
+          onChanged: onCheckBoxChanged,
         ),
       ),
     );
