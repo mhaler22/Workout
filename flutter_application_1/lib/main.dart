@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/workout_data.dart';
 import 'package:flutter_application_1/pages/LoginPage.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
-import 'package:flutter_application_1/pages/welcome_page.dart'; // Import your WelcomePage
+import 'package:flutter_application_1/pages/welcome_page.dart'; 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 

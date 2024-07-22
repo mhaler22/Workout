@@ -70,9 +70,9 @@ flutter:
   - assets/welcome.jpg
   - assets/homepage.jpg
   - assets/workout.jpeg
-  - assets/photo1.jpg
-  - assets/photo2.png
-  - assets/photo3.jpg
+  - assets/photo1.jpeg
+  - assets/photo2.jpeg
+  - assets/photo3.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

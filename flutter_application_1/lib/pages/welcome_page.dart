@@ -65,21 +65,21 @@ class WelcomePage extends StatelessWidget {
                     Flexible(
                       child: AspectRatio(
                         aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo1.jpg', fit: BoxFit.cover),
+                        child: Image.asset('assets/photo2.jpeg', fit: BoxFit.cover),
                       ),
                     ),
                     const SizedBox(width: 10.0),
                     Flexible(
                       child: AspectRatio(
                         aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo2.png', fit: BoxFit.cover),
+                        child: Image.asset('assets/photo1.jpeg', fit: BoxFit.cover),
                       ),
                     ),
                     const SizedBox(width: 10.0),
                     Flexible(
                       child: AspectRatio(
                         aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo3.jpg', fit: BoxFit.cover),
+                        child: Image.asset('assets/photo3.jpeg', fit: BoxFit.cover),
                       ),
                     ),
                   ],

@@ -32,15 +32,15 @@ class _LoginPageState extends State<LoginPage> {
   // Gym quote list
   final List<String> gymQuotes = [
     "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson (general motivational)",
-    "Every workout is a step closer to your goals. - Unknown",
-    "Sore today, strong tomorrow. - Unknown",
-    "It's not about being better than someone else. It's about being better than the person you were yesterday. - Unknown",
+    "Every workout is a step closer to your goals. - kitloy",
+    "Sore today, strong tomorrow. - bilog",
+    "It's not about being better than someone else. It's about being better than the person you were yesterday. - nguso",
     "The difference between ordinary and extraordinary is that little extra. - Jimmy Johnson",
-    "If it doesn't challenge you, it doesn't change you. - Unknown",
+    "If it doesn't challenge you, it doesn't change you. - totoy",
     "Train insane or remain the same. - Unknown (more intense)",
-    "You don't have to be great to start, but you have to start to be great. - Zig Ziglar",
-    "Progress, not perfection. - Unknown",
-    "Excuses are just muscles that make you weaker. - Unknown (humorous)",
+    "You don't have to be great to start, but you have to start to be great. - bibilog",
+    "Progress, not perfection. - bossing bossing kamusta buhay buhay!",
+    "Excuses are just muscles that make you weaker. - jhing (humorous)",
   ];
 
   @override

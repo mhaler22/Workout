@@ -14,7 +14,7 @@ String todaysDateYYYYMMDD() {
 
   //day is the format dd
   String day = dateTimeObject.day.toString();
-  if(day.length == 1) {
+  if(day.length == 2) {
     day = '0$day';
   }
   
@@ -51,11 +51,50 @@ String convertDateTimeToYYYYMMDD(DateTime dateTime) {
 
   //day in the format
   String day = dateTime.day.toString();
-  if (day.length == 1) {
+  if (day.length == 2) {
     day = '0$day';
   }
 
   //final format
   String yyyymmdd = year + month + day;
   return yyyymmdd;
+}
+void displayDatesUpToLastDayOfMonth() {
+  // Get today's date
+  DateTime today = DateTime.now();
+
+  // Get the first day of the next month
+  DateTime firstDayOfNextMonth = DateTime(today.year, today.month + 1, 1);
+
+  // Loop through all days up to the last day (excluding)
+  for (DateTime date = today; date.isBefore(firstDayOfNextMonth); date = date.add(Duration(days: 1))) {
+    String dateString = convertDateTimeToYYYYMMDD(date);
+    print(dateString);
+  }
+}
+
+void main() {
+  // Display dates up to the last day of the current month
+  displayDatesUpToLastDayOfMonth();
+}
+List<DateTime> getAllDatesInMonth(String startDateYYYYMMDD) {
+  // Get DateTime object from startDateYYYYMMDD
+  DateTime startDate = createDateTimeObject(startDateYYYYMMDD);
+
+  // Get year and month from startDate
+  int year = startDate.year;
+  int month = startDate.month;
+
+  // Create a DateTime object for the first day of the next month
+  DateTime firstDayOfNextMonth = DateTime(year, month + 1, 1);
+
+  // List to store all dates
+  List<DateTime> allDates = [];
+
+  // Loop through all days up to the last day (excluding)
+  for (DateTime date = startDate; date.isBefore(firstDayOfNextMonth); date = date.add(Duration(days: 1))) {
+    allDates.add(date);
+  }
+
+  return allDates;
 }
