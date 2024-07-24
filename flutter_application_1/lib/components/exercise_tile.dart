@@ -40,31 +40,31 @@ class ExerciseTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 157, 177, 186), // Set background color
+        color: Colors.white.withOpacity(0.8), // Set background color
         borderRadius: BorderRadius.circular(8.0), // Add rounded corners
       ),
       child: ListTile(
         title: Text(
           exerciseName,
-          style: TextStyle(color: Colors.white), // Set exercise name text color to white
+          style: TextStyle(color: Colors.black), // Set exercise name text color to white
         ),
         subtitle: Row(
           children: [
             Chip(
               label: Text("$weight kg"),
-              backgroundColor: Colors.blueGrey, // Set Chip background color
+              backgroundColor: Color(0xff8A9098), // Set Chip background color
               labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
             ),
             SizedBox(width: 8.0), // Optional: Add spacing between Chips
             Chip(
               label: Text("$reps reps"),
-              backgroundColor: Colors.blueGrey, // Set Chip background color
+              backgroundColor: Color(0xff8A9098), // Set Chip background color
               labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
             ),
             SizedBox(width: 8.0), // Optional: Add spacing between Chips
             Chip(
               label: Text("$sets sets"),
-              backgroundColor: Colors.blueGrey, // Set Chip background color
+              backgroundColor: Color(0xff8A9098), // Set Chip background color
               labelStyle: TextStyle(color: Colors.white), // Optional: Set text color
             ),
           ],

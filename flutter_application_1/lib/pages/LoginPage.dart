@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
 
                                         if (_authenticate()) {
                                           // Navigate to the next screen on successful login
-                                          Navigator.pushReplacementNamed(context, '/welcome');
+                                          Navigator.pushReplacementNamed(context, '/home');
                                         } else {
                                           setState(() {
                                             _isLoading = false;

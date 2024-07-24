@@ -11,16 +11,21 @@ class WelcomePage extends StatelessWidget {
         ),
         backgroundColor: Colors.blueGrey[800],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/welcome.jpg'),
-              fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          // Background image with responsive behavior
+          Container(
+            constraints: BoxConstraints.expand(), // Fills entire screen
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/welcome.jpg'),
+                fit: BoxFit.cover, // Maintain aspect ratio and cover
+              ),
             ),
           ),
-          child: Center(
+
+          // Content centered on top of the background
+          Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -41,7 +46,7 @@ class WelcomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20.0),
                 ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/home'),
+                  onPressed: () => Navigator.pushNamed(context, '/login'),
                   child: const Text(
                     'Start Workout Journey',
                     style: TextStyle(color: Colors.white),
@@ -58,36 +63,10 @@ class WelcomePage extends StatelessWidget {
                     color: Colors.white70,
                   ),
                 ),
-                const SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: AspectRatio(
-                        aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo2.jpeg', fit: BoxFit.cover),
-                      ),
-                    ),
-                    const SizedBox(width: 10.0),
-                    Flexible(
-                      child: AspectRatio(
-                        aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo1.jpeg', fit: BoxFit.cover),
-                      ),
-                    ),
-                    const SizedBox(width: 10.0),
-                    Flexible(
-                      child: AspectRatio(
-                        aspectRatio: 2/1, // Adjust aspect ratio as needed
-                        child: Image.asset('assets/photo3.jpeg', fit: BoxFit.cover),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }

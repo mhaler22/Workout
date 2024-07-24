@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'PUMP UP!',
         debugShowCheckedModeBanner: false,
-        home: const LoginPage(), // Set LoginPage as the initial route
+        home: WelcomePage(), // Set LoginPage as the initial route
         routes: { // Define routes for navigation
-          '/welcome': (context) => WelcomePage(),
+          '/login': (context) => LoginPage(),
           '/home': (context) => const HomePage(),
         },
       ),

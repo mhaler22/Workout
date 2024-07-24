@@ -22,7 +22,30 @@ List<Workout> workoutList = [
       name: "Bicep Curls", 
       weight: "10",
        reps: "10", 
-       sets: "3")
+       sets: "3"),
+       
+       Exercise(
+        name: "Incline dumbell press", 
+        weight: "15",
+         reps: "12",
+          sets: "3"),
+
+          Exercise(
+            name: "shoulder press",
+             weight: "10",
+              reps: "10", 
+              sets: "3"),
+
+              Exercise(
+                name: "lateral raise",
+                 weight: "10",
+                  reps: "12", 
+                  sets: "3"),
+
+                  Exercise(name: "tricep extension",
+                   weight: "10",
+                    reps: "12", 
+                    sets: "3")
     ]
     )
 ];
